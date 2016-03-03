@@ -57,6 +57,10 @@ syn region rubyNestedCurlyBraces    start="{"  skip="\\\\\|\\}"  matchgroup=ruby
 syn region rubyNestedAngleBrackets  start="<"  skip="\\\\\|\\>"  matchgroup=rubyString end=">"	transparent contained
 syn region rubyNestedSquareBrackets start="\[" skip="\\\\\|\\\]" matchgroup=rubyString end="\]"	transparent contained
 
+syn region rubyInsideParens	matchgroup=rubyParens  start="(" end=")"				contains=ALLBUT,@rubyNotTop fold
+syn region rubyInsideCurlyBrackets	matchgroup=rubyCurlyBrackets  start="{" end="}"				contains=ALLBUT,@rubyNotTop fold
+syn region rubyInsideBrackets	matchgroup=rubyBrackets  start="\[" end="\]"				contains=ALLBUT,@rubyNotTop fold
+
 " These are mostly Oniguruma ready
 syn region rubyRegexpComment	matchgroup=rubyRegexpSpecial   start="(?#"								  skip="\\)"  end=")"  contained
 syn region rubyRegexpParens	matchgroup=rubyRegexpSpecial   start="(\(?:\|?<\=[=!]\|?>\|?<[a-z_]\w*>\|?[imx]*-[imx]*:\=\|\%(?#\)\@!\)" skip="\\)"  end=")"  contained transparent contains=@rubyRegexpSpecial
